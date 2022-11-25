@@ -1,0 +1,9 @@
+<div class="d-flex" id="wrapper">
+    <div id="sidebar" class="sidenav">
+      <app-sidebar-page [toggleNav]="toggleNav"></app-sidebar-page>
+    </div>
+    <div id="page-content-wrapper">
+    <app-projects-list (sidenavToggle)="showToggleNav($event)"></app-projects-list>
+    </div>
+  </div>
+

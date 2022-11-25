@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-md navbar-toggleable-sm navbar-light bg-light">
+  <div class="container">
+    <a
+      [routerLink]="['/']"
+      routerLinkActive="router-link-active"
+      class="navbar-brand text-uppercase font-weight-bold"
+      ><span style="color: red">Martin</span>Devs</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="toggleNavbar()"
+      data-toggle="collapse"
+      data-target="#navbarsExampleDefault"
+      aria-controls="navbarsExampleDefault"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="navbar-collapse collapse d-lg-inline-flex justify-content-between"
+      id="navbarsExampleDefault"
+      [ngClass]="{ show: navbarOpen }"
+    >
+      <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/videos">YouTube</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact">Contact</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <ng-template #anonymousUser>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register">Register</a>
+          </li>
+        </ng-template>
+        <li  *ngIf="auth.user$ | async as user; else anonymousUser" class="nav-item dropdown" dropdown>
+          <a class="nav-link dropdown-toggle" dropdownToggle>
+            Welcome {{user.displayName}}
+          </a>
+          <div class="dropdown-menu mt-3" *dropdownMenu>
+            <a class="dropdown-item" routerLink="/message-page">Messages</a>
+            <a class="dropdown-item" routerLink="/projects-list">Projects</a>
+            <a class="dropdown-item" routerLink="/admin-panel">Admin-panel</a>
+            <a class="dropdown-item" (click)="logout()">Log Out</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

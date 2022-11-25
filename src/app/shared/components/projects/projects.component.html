@@ -1,0 +1,109 @@
+<!--  ======================= Start Main Area ================================ -->
+<main class="site-main">
+  <!--  ======================= Project Area =============================  -->
+  <section class="project-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="heading"> <span>Portfolio</span> </h1>
+        </div>
+    </div>
+    <br />
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="project-title pb-5">
+            <div id="searchWrapper" class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                name="searchBar"
+                id="searchBar"
+                placeholder="search for a Project"
+              />
+            </div>
+            <hr />
+          </div>
+          <!-- filter buttons -->
+          <div class="btn-container">
+            <div class="row grid justify-content-center">
+              <button
+                type="button"
+                class="btn btn-outline-primary filter-btn"
+                (click)="filter('')"
+              >
+                all Products
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-danger filter-btn"
+                (click)="filter('spa')"
+              >
+                SinglePage-App
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-info filter-btn"
+                (click)="filter('aspnetcore')"
+              >
+                ASP.NET CORE
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary filter-btn"
+                (click)="filter('javascript')"
+              >
+                Javascript
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-success filter-btn"
+                (click)="filter('c#')"
+              >
+                C#
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-warning filter-btn"
+                (click)="filter('html')"
+              >
+                HTML
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="projects">
+            <div id="card" class="row grid justify-content-center">
+              <div class="col-lg-4" *ngFor="let project of projects$ | async">
+                <div class="card">
+                  <div class="card-head">
+                    <img
+                      src="{{project.imageProject}}"
+                      alt=""
+                      class="img-fluid card-img"
+                    />
+                    <div class="card-hover">
+                      <h4>Details: {{project.titleProject}}</h4>
+                    </div>
+                  </div>
+                  <div class="card-body text-center">
+                    <h4 class="title">{{project.titleProject}}</h4>
+                    <a
+                      routerLink="/projects/{{ project.id }}"
+                      class="btn btn-lg card-btn"
+                      >More Details</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="btn-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--  ======================= End Project Area =============================  -->
+</main>

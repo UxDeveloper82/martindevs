@@ -1,0 +1,11 @@
+#sidebar-wrapper.hide {
+  margin-left: -200px;
+}
+
+@media screen and (max-width: 450px) {
+  #sidebar-wrapper{
+    overflow: hidden;
+    z-index: 2;
+    transition: 0.5s;
+}
+}

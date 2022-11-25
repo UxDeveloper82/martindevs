@@ -1,0 +1,38 @@
+[
+  {
+      "id": "1",
+      "category": "spa",
+      "name": "Friend-App",
+      "photoUrl":"Friendsite"
+  },
+  {
+    "id": "2",
+    "category": "aspnetcore",
+    "name": "Repair-App",
+    "photoUrl":"orrepair"
+  },
+  {
+    "id": "3",
+    "category":"aspnetcore",
+    "name": "Inventory-App",
+    "photoUrl":"Inventory"
+},
+{
+  "id": "4",
+  "category":"c#",
+  "name": "Managmanent-App",
+  "photoUrl":"budget"
+},
+{
+  "id": "5",
+  "category":"javascript",
+  "name": "PigGame-App",
+  "photoUrl":"piggame"
+},
+{
+  "id": "6",
+  "category":"html",
+  "name": "Electronics-App",
+  "photoUrl":"websites"
+}
+]
