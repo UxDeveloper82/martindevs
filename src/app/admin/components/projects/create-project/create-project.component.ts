@@ -13,6 +13,7 @@ import { ProjectsService } from 'src/app/_services/projects.service';
 export class CreateProjectComponent implements OnInit {
   private projectsCollection: AngularFirestoreCollection<Iproject>
   private filePath: any;
+  private image: any;
   private downloadURL: Observable<string>;
 
   constructor(private projectService: ProjectsService) { }

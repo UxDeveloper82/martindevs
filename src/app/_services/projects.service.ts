@@ -45,12 +45,13 @@ export class ProjectsService {
     return this.afs.doc<Iproject>(`Projects/${id}`).valueChanges();
   }
 
-  public onEditProject(project: Iproject) {
-    return this.projectsCollection.doc(project.id).update(project);
-  }
-
   public deleteProject(project: Iproject) {
     return this.projectsCollection.doc(project.id).delete();
+  }
+
+  public editProjectById(project: Iproject, newImage?: Ifile) {
+      return this.projectsCollection.doc(project.id).update(project);
+
   }
 
   public preAddAndUpdateProject(project: Iproject, image: Ifile): void{
@@ -65,8 +66,12 @@ export class ProjectsService {
          fileRef: this.filePath,
          tagsProject: project.tagsProject,
      };
-    // Todo Editors
-    this.projectsCollection.add(projectObj);
+     if(project.id) {
+      return this.projectsCollection.doc(project.id).update(projectObj);
+     }else {
+       // Todo Editors
+     return this.projectsCollection.add(projectObj);
+     }
   }
 
   private uploadImage(project: Iproject, image: Ifile) {

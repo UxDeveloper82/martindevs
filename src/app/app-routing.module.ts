@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminpanelComponent } from './admin/adminpanel/adminpanel.component';
-import { CreateblogPageComponent } from './admin/components/blog/createblog-page/createblog-page.component';
 import { CreateProjectComponent } from './admin/components/projects/create-project/create-project.component';
 import { ProjectsListComponent } from './admin/components/projects/projects-list/projects-list.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
@@ -22,10 +21,6 @@ const routes: Routes = [
   {
     path: 'message-page',
     loadChildren: () => import('./admin/admin.module').then(m =>m.AdminModule),
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'createblog-page', component: CreateblogPageComponent,
     canActivate: [AuthGuard],
   },
   {
